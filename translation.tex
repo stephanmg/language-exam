@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{listings}  
+\usepackage{color}
+\usepackage[numbered]{matlab-prettifier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage[printwatermark]{xwatermark}
+\usepackage{float}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    pdftitle    = {English Language Profiency Exam},
+    pdfsubject  = {Translation of a French paper to English in Numerical Analysis},
+    pdfauthor   = {Stephan Grein},
+    pdfkeywords = {Translation, English, Frensh, Numerical Analysis, time-parallel methods, Parareal, PDE, ODE}
+}
+
+\title{Solution of a PDE by a `parareal' scheme \footnote{Translation of the original French research article \cite{Lions2001} to English by Stephan Grein}}
+\author{Jacques-Louis LIONS, Yvon MADAY and Gabriel TURINIC}
+\newwatermark*[allpages,color=blue!50,angle=45,scale=2,xpos=0,ypos=0]{DRAFT (Stephan Grein)}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The purpose of this Note is to propose a time discretization of a partial differential evolution
+equation that allows for parallel implementations. The method, based on an Euler scheme,
+combines coarse resolutions and independent fine resolutions in time in the same spirit
+as standard spacial approximations. The resulting parallel implementation is done in the
+non standard time direction. Its main goal concerns real time problems, hence the proposed
+terminology of `parareal' algorithm.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\dots
+\section{Comments on stability}
+\dots
+\section{Application of the `parareal' scheme to linear PDEs}
+\dots
+\section{Analogue application to non-linear PDEs}
+\dots
+
+\bibliographystyle{plain}
+\bibliography{bib}
+
+%%% content here
+\end{document}
