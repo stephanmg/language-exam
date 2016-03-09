@@ -1,11 +1,8 @@
-# A template for my homeworks in LaTeX
+# Language Exam
+
+Translation of an original research article from Frensh to English.
 
 ## Usage
-Just adjust dummy values for your needs.
-Then use the Makefile, i. e. execute
 ```
 make
 ```
-
-## Questions/Enhancements/Suggestions
-Please drop me a line [to my profile](https://github.com/stephanmg)
