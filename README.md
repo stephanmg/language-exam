@@ -1,6 +1,6 @@
 # Language Exam
 
-Translation of an original research article from Frensh to English.
+Translation of an original research article from French to English.
 
 ## Usage
 ```
