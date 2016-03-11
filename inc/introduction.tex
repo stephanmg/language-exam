@@ -1,0 +1,22 @@
+Consider a time-dependent partial differential equation (PDE)
+\begin{equation}
+\frac{\partial{u}}{\partial{t}} + Au = f\quad \textnormal{in the time interval}\ [0, T],
+\end{equation}
+with initial conditions $u(t=0) = u_0$ and for now with some unspecified boundary conditions.
+The unknown $u$ can be scalar or vectorial and the PDE may be of linear or non-linear type.
+We propose in this note a time discretization scheme which intrinsically parallelizes and
+meets a desired a-priori prescribed precision. To this end, choose an integral number 
+$N \in \mathbb{N}$ representing the number of time steps with length $\Delta T = T / N$ 
+and write $T^n = n \Delta T$ for $n=0, ... ,N$. Next the \textit{functions} $\lambda_n$ for
+$n=0, ..., N-1$ are introduced for each time interval (certainly $\lambda_0 = u_0$) and one
+solves, within the interval $[T^n, T^{n+1}]$ the equation
+\begin{equation}
+\frac{\partial u_n}{\partial t} + A u_n = f_n, \quad f_n = f_{|[T^n, T^{n+1}]},
+\end{equation}
+with the initial conditions $u_n(t=T^n)=\lambda_n$ with the same boundary conditions as
+previously for $u$. Thus the collection $u_n$ can be solved in parallel for $n=0, ..., N-1$.
+This collection coincides with 
+$\{u_{|[T^n, T^{n+1}]}\}_n$ when $u_n(T^{n+1,-})\ (=\lim_{\delta>0, \delta \to 0} u_n(T^{n+1} - \delta)) = \lambda_{n+1}$
+for $n=0, ..., N-1$. We show in the following how to find the values in an iterative way.
+
+\paragraph{Remark.}-\dots
