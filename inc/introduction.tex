@@ -19,4 +19,34 @@ This collection coincides with
 $\{u_{|[T^n, T^{n+1}]}\}_n$ when $u_n(T^{n+1,-})\ (=\lim_{\delta>0, \delta \to 0} u_n(T^{n+1} - \delta)) = \lambda_{n+1}$
 for $n=0, ..., N-1$. We show in the following how to find the values in an iterative way.
 
-\paragraph{Remark.}-\dots
+\paragraph{Remark}.- One could consider that the $\lambda_n$ represent a `virtual control'. 
+Also is it natural to introduce the function of costs for the `virtual control' by 
+$J(\lambda) = \sum_{n=1}^{N-1} ||u_n(T^n,-) - \lambda_n||^2$ and using a method of gradient
+for finding the $\lambda_n$ by minmization the functional $J(\lambda)$. However one major
+drawback of this formulation is that it is no canonically way to parallelize the method.
+Therefore we propose a scheme which incorporates the feedback of the cost function for
+finding the values yet allowing to parallelize the scheme more easily.
+
+For illustration purposes consider a simple linear differential equation 
+\begin{equation}
+\begin{cases}
+\frac{dy}{dt}(t) = -ay(t) \quad \textnormal{in}\ [0, T], \\
+y(t=0) = y_0.
+\end{cases}
+\end{equation}
+Make use of the implicit Euler method
+\begin{equation}
+\frac{Y^{n+1} - Y^{n}}{\Delta T} + aY^{n+1} = 0, \\
+Y^0 = y_0,
+\end{equation}
+then utilize the precalculated (coarse) values for 
+solving exact (or very fine) on every time interval $[T^n, T^{n+1}]$ 
+\begin{equation}
+\begin{cases}
+\frac{dy^n}{dt}(t) = -ay^n(t)\quad \textnormal{in}\ [T^n, T^{n+1}], \\
+y^n(t=T^n) = Y^n.
+\end{cases}
+\end{equation}
+Next an iterative method is proposed to increase 
+the precision for the preliminary scheme.
+
