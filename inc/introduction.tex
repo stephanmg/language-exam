@@ -19,7 +19,7 @@ This collection coincides with
 $\{u_{|[T^n, T^{n+1}]}\}_n$ when $u_n(T^{n+1,-})\ (=\lim_{\delta>0, \delta \to 0} u_n(T^{n+1} - \delta)) = \lambda_{n+1}$
 for $n=0, ..., N-1$. We show in the following how to find the values in an iterative way.
 
-\paragraph{Remark}.- One could consider that the $\lambda_n$ represent a `virtual control'. 
+\paragraph{Remark} One could consider that the $\lambda_n$ represent a `virtual control'. 
 Also is it natural to introduce the function of costs for the `virtual control' by 
 $J(\lambda) = \sum_{n=1}^{N-1} ||u_n(T^n,-) - \lambda_n||^2$ and using a method of gradient
 for finding the $\lambda_n$ by minmization the functional $J(\lambda)$. However one major
@@ -49,4 +49,32 @@ y^n(t=T^n) = Y^n.
 \end{equation}
 Next an iterative method is proposed to increase 
 the precision for the preliminary scheme.
+
+Let $Y_1^n = Y^n$ and define on $[T^n, T^{n+1}]$ $y_1^n(t) = y^n(t)$. Next
+suppose $Y_k^n$ and $y_k^n(t)$ are known on $]T^n, T^{n+1}]$,
+\begin{enumerate}
+\item[(i)] Introduce the jumps $S_k^n = y_k^{n-1}(T^n)-Y_k^n$,
+\item[(ii)] propagate the jumps
+\begin{equation}
+\begin{cases}
+\frac{\gamma_k^{n+1} - \gamma_k^n}{\Delta T} + a \gamma_k^{n+1} = \frac{S_k^n}{\Delta T},\\
+\gamma_k^0 = 0,
+\end{cases}
+\end{equation}
+\item[(iii)] finally set $Y_{k+1}^n = y_k^{n-1}(T^n) + \gamma_k^n$ and solve exact and in parallel
+\begin{equation}
+\begin{cases}
+dy_{k+1}^n(t) = -ay_{k+1}^n(t) \quad in [T^n, T^{n+1}], \\
+y_{k+1}^n(t = T^n) = Y_{k+1}^n.
+\end{cases}
+\end{equation}
+\end{enumerate}
+The previous demands for a proof of the following:
+\paragraph{\textsc{PROPOSITION 1}} \textit{The preceeding scheme is of order $k$ given a constant $c_k$ such that:}
+\begin{equation}
+\forall n, 0 \leq n \leq N-1, \quad |Y_k^n-y(T^n)|+\max_{t\in[T^n,T^{n+1}]}|y_k^n(t) - y(t)| \leq c_k \Delta T^k.
+\end{equation}
+
+\paragraph{\textit{Proof}}: The proposition is trivial for rank k = 1, we will show this by recursion.
+
 
