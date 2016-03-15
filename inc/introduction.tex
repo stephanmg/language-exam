@@ -56,6 +56,7 @@ suppose $Y_k^n$ and $y_k^n(t)$ are known on $]T^n, T^{n+1}]$,
 \item[(i)] Introduce the jumps $S_k^n = y_k^{n-1}(T^n)-Y_k^n$,
 \item[(ii)] propagate the jumps
 \begin{equation}
+\label{eq:propagation_of_jumps}
 \begin{cases}
 \frac{\gamma_k^{n+1} - \gamma_k^n}{\Delta T} + a \gamma_k^{n+1} = \frac{S_k^n}{\Delta T},\\
 \gamma_k^0 = 0,
@@ -75,6 +76,15 @@ The previous demands for a proof of the following:
 \forall n, 0 \leq n \leq N-1, \quad |Y_k^n-y(T^n)|+\max_{t\in[T^n,T^{n+1}]}|y_k^n(t) - y(t)| \leq c_k \Delta T^k.
 \end{equation}
 
-\paragraph{\textit{Proof}}: The proposition is trivial for rank k = 1, we will show this by recursion.
-
-
+\paragraph{\textit{Proof}} The proposition is trivial for $rank(k) = 1$, we will show this by recursion. 
+Remember that $y_k^{n-1}(T^n) = e^{-a\Delta T}Y_k^{n-1}$ and that $S_k^n = e^{-a\Delta T}Y_k^{n-1} - Y_k^n$ holds.
+Furthermore the solution of \eqref{eq:propagation_of_jumps} is
+\begin{equation}
+\gamma_k^n = \sum_{p=1}^{n-1} (1+a\Delta T)^{p-n}S_k^p = \sum_{p=1}^{n-1} (1+a \Delta T)^{p-n}(e^{-a\Delta T} Y_k^{p-1} - Y_k^p),
+\end{equation}
+as well as 
+\begin{equation}
+Y_{k+1}^n = e^{-a\Delta T}Y_k^{n-1} + \sum_{p=1}^{n-1}(1+a\Delta T)^{p-n}(e^{-a\Delta T}Y_k^{p-1} - Y_k^p)
+\end{equation}
+holds. Given the exact solution $y(T^n) = e^{-na\Delta T}y_0$ 
+one can deduce that ...
